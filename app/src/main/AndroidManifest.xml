@@ -25,13 +25,34 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
-        <activity android:name=".HistoriaView"
-                  android:parentActivityName=".MainActivity">
+        <activity
+            android:name=".HistoriaView"
+            android:parentActivityName=".MainActivity">
+
             <!-- The meta-data tag is required if you support API level 15 and lower -->
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value=".MainActivity" />
         </activity>
+        <activity
+            android:name=".ABAActivity"
+            android:parentActivityName=".HistoriaView">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HistoriaView" />
+        </activity>
+        <activity
+            android:name=".BABActivity"
+            android:parentActivityName=".HistoriaView">
+
+            <!-- The meta-data tag is required if you support API level 15 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".HistoriaView" />
+        </activity>
+
     </application>
 
 </manifest>
