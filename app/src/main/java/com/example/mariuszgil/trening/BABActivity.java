@@ -2,6 +2,11 @@ package com.example.mariuszgil.trening;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
+import android.widget.ListView;
 
 public class BABActivity extends AppCompatActivity {
 
@@ -9,5 +14,23 @@ public class BABActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bab);
+        String[] babList = {"Martwy ciąg ze sztangą 4 serie x 10 powt.",
+                "Wyciskanie sztangi wąskim chwytem 4 serie x 10 powt.",
+                "Wyciskanie na barki, siedząc, do czoła 4 serie x 10 powt.",
+                "Wiosłowanie jednorącz 4 serie x 10 powt.",
+                "Wznosy ramion w opadzie 4 serie x 10 powt."};
+
+        ListAdapter babAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,babList);
+
+        ListView theListview = (ListView) findViewById(R.id.bablista);
+
+        theListview.setAdapter(babAdapter);
+
+        theListview.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> adapterView, View view, int i, long l) {
+                return false;
+            }
+        });
     }
 }
