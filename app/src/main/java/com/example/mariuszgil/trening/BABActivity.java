@@ -14,11 +14,11 @@ public class BABActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_bab);
-        String[] babList = {"Martwy ciąg ze sztangą 4 serie x 10 powt.",
-                "Wyciskanie sztangi wąskim chwytem 4 serie x 10 powt.",
-                "Wyciskanie na barki, siedząc, do czoła 4 serie x 10 powt.",
-                "Wiosłowanie jednorącz 4 serie x 10 powt.",
-                "Wznosy ramion w opadzie 4 serie x 10 powt."};
+        String[] babList = {"Martwy ciąg ze sztangą",
+                "Wyciskanie sztangi wąskim chwytem",
+                "Wyciskanie na barki, siedząc, do czoła",
+                "Wiosłowanie jednorącz",
+                "Wznosy ramion w opadzie"};
 
         ListAdapter babAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,babList);
 
