@@ -31,8 +31,9 @@ public class ABAActivity extends AppCompatActivity {
 
     private void display(int number) {
         TextView displayInteger = (TextView) findViewById(
-                R.id.integer_number);
+                R.id.integer_number3);
         displayInteger.setText("" + number + "kg");
     }
+
 
 }
