@@ -31,8 +31,10 @@ public class ABAActivity extends AppCompatActivity {
 
     }
     public void decreaseInteger2(View view) {
-        minteger2 = minteger2 - 1;
-        display2(minteger2);
+        if (minteger2 >= 1) {
+            minteger2 = minteger2 - 1;
+            display2(minteger2);
+        }
     }
 
     private void display2(int number) {
@@ -46,8 +48,10 @@ public class ABAActivity extends AppCompatActivity {
 
     }
     public void decreaseInteger8(View view) {
-        minteger8 = minteger8 - 1;
-        display8(minteger8);
+        if(minteger8 >= 1) {
+            minteger8 = minteger8 - 1;
+            display8(minteger8);
+        }
     }
 
     private void display8(int number) {
@@ -61,8 +65,10 @@ public class ABAActivity extends AppCompatActivity {
 
     }
     public void decreaseInteger3(View view) {
-        minteger3 = minteger3 - 1;
-        display3(minteger3);
+        if (minteger3 >= 1) {
+            minteger3 = minteger3 - 1;
+            display3(minteger3);
+        }
     }
 
     private void display3(int number) {
@@ -76,8 +82,10 @@ public class ABAActivity extends AppCompatActivity {
 
     }
     public void decreaseInteger4(View view) {
-        minteger4 = minteger4 - 1;
-        display4(minteger4);
+        if (minteger4 >= 1) {
+            minteger4 = minteger4 - 1;
+            display4(minteger4);
+        }
     }
 
     private void display4(int number) {
@@ -91,8 +99,10 @@ public class ABAActivity extends AppCompatActivity {
 
     }
     public void decreaseInteger5(View view) {
-        minteger5 = minteger5 - 1;
-        display5(minteger5);
+        if (minteger5 >= 1) {
+            minteger5 = minteger5 - 1;
+            display5(minteger5);
+        }
     }
 
     private void display5(int number) {
@@ -106,8 +116,10 @@ public class ABAActivity extends AppCompatActivity {
 
     }
     public void decreaseInteger6(View view) {
-        minteger6 = minteger6 - 1;
-        display6(minteger6);
+        if (minteger6 >= 1) {
+            minteger6 = minteger6 - 1;
+            display6(minteger6);
+        }
     }
 
     private void display6(int number) {
@@ -121,8 +133,10 @@ public class ABAActivity extends AppCompatActivity {
 
     }
     public void decreaseInteger7(View view) {
-        minteger7 = minteger7 - 1;
-        display7(minteger7);
+        if (minteger7 >= 1) {
+            minteger7 = minteger7 - 1;
+            display7(minteger7);
+        }
     }
 
     private void display7(int number) {
