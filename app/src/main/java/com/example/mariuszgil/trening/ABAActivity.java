@@ -1,5 +1,6 @@
 package com.example.mariuszgil.trening;
 
+import android.content.Context;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ABAActivity extends AppCompatActivity {
 
@@ -19,12 +21,23 @@ public class ABAActivity extends AppCompatActivity {
     int minteger6 = 0;
     int minteger7 = 0;
 
+
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aba);
 
     }
+    public void displayToast(){
+        Context context = getApplicationContext();
+        CharSequence zaMaloKG = "Nie ma ujemnych hantli ;]" ;
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, zaMaloKG, duration);
+        toast.show();
+    }
+
     public void increaseInteger2(View view) {
         minteger2 = minteger2 + 1;
         display2(minteger2);
@@ -34,6 +47,9 @@ public class ABAActivity extends AppCompatActivity {
         if (minteger2 >= 1) {
             minteger2 = minteger2 - 1;
             display2(minteger2);
+        }
+        else if (minteger2 <= 0) {
+            displayToast();
         }
     }
 
@@ -52,6 +68,9 @@ public class ABAActivity extends AppCompatActivity {
             minteger8 = minteger8 - 1;
             display8(minteger8);
         }
+        else if (minteger2 <= 0) {
+            displayToast();
+        }
     }
 
     private void display8(int number) {
@@ -68,6 +87,9 @@ public class ABAActivity extends AppCompatActivity {
         if (minteger3 >= 1) {
             minteger3 = minteger3 - 1;
             display3(minteger3);
+        }
+        else if (minteger2 <= 0) {
+            displayToast();
         }
     }
 
@@ -86,6 +108,9 @@ public class ABAActivity extends AppCompatActivity {
             minteger4 = minteger4 - 1;
             display4(minteger4);
         }
+        else if (minteger2 <= 0) {
+            displayToast();
+        }
     }
 
     private void display4(int number) {
@@ -102,6 +127,9 @@ public class ABAActivity extends AppCompatActivity {
         if (minteger5 >= 1) {
             minteger5 = minteger5 - 1;
             display5(minteger5);
+        }
+        else if (minteger2 <= 0) {
+            displayToast();
         }
     }
 
@@ -120,6 +148,9 @@ public class ABAActivity extends AppCompatActivity {
             minteger6 = minteger6 - 1;
             display6(minteger6);
         }
+        else if (minteger2 <= 0) {
+            displayToast();
+        }
     }
 
     private void display6(int number) {
@@ -137,6 +168,9 @@ public class ABAActivity extends AppCompatActivity {
             minteger7 = minteger7 - 1;
             display7(minteger7);
         }
+        else if (minteger2 <= 0) {
+            displayToast();
+        }
     }
 
     private void display7(int number) {
@@ -144,4 +178,5 @@ public class ABAActivity extends AppCompatActivity {
                 R.id.integer_number7);
         displayInteger.setText("" + number + "kg");
     }
+    
 }
