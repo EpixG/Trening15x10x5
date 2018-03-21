@@ -1,17 +1,31 @@
 package com.example.mariuszgil.trening;
 
 import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+
 public class ABAActivity extends AppCompatActivity {
+
+
+    SQLiteDatabase progressDB = null;
+
+    Button zapiszTrening;
+
+
+
+
 
     int minteger2 = 0;
     int minteger8 = 0;
@@ -21,18 +35,17 @@ public class ABAActivity extends AppCompatActivity {
     int minteger6 = 0;
     int minteger7 = 0;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aba);
 
+        zapiszTrening = (Button) findViewById(R.id.zapiszTrening);
+
     }
     public void displayToast(){
         Context context = getApplicationContext();
-        CharSequence zaMaloKG = "Nie ma ujemnych hantli ;]" ;
+        CharSequence zaMaloKG = "Nie można wybrać ujemnego obciążenia" ;
         int duration = Toast.LENGTH_SHORT;
         Toast toast = Toast.makeText(context, zaMaloKG, duration);
         toast.show();
@@ -56,7 +69,7 @@ public class ABAActivity extends AppCompatActivity {
     private void display2(int number) {
         TextView displayInteger = (TextView) findViewById(
                 R.id.integer_number2);
-        displayInteger.setText("" + number + "kg");
+        displayInteger.setText(number + "kg");
     }
     public void increaseInteger8(View view) {
         minteger8 = minteger8 + 1;
@@ -76,7 +89,7 @@ public class ABAActivity extends AppCompatActivity {
     private void display8(int number) {
         TextView displayInteger = (TextView) findViewById(
                 R.id.integer_number8);
-        displayInteger.setText("" + number + "kg");
+        displayInteger.setText(number + "kg");
     }
     public void increaseInteger3(View view) {
         minteger3 = minteger3 + 1;
@@ -96,7 +109,7 @@ public class ABAActivity extends AppCompatActivity {
     private void display3(int number) {
         TextView displayInteger = (TextView) findViewById(
                 R.id.integer_number3);
-        displayInteger.setText("" + number + "kg");
+        displayInteger.setText(number + "kg");
     }
     public void increaseInteger4(View view) {
         minteger4 = minteger4 + 1;
@@ -116,7 +129,7 @@ public class ABAActivity extends AppCompatActivity {
     private void display4(int number) {
         TextView displayInteger = (TextView) findViewById(
                 R.id.integer_number4);
-        displayInteger.setText("" + number + "kg");
+        displayInteger.setText(number + "kg");
     }
     public void increaseInteger5(View view) {
         minteger5 = minteger5 + 1;
@@ -136,7 +149,7 @@ public class ABAActivity extends AppCompatActivity {
     private void display5(int number) {
         TextView displayInteger = (TextView) findViewById(
                 R.id.integer_number5);
-        displayInteger.setText("" + number + "kg");
+        displayInteger.setText(number + "kg");
     }
     public void increaseInteger6(View view) {
         minteger6 = minteger6 + 1;
@@ -156,7 +169,7 @@ public class ABAActivity extends AppCompatActivity {
     private void display6(int number) {
         TextView displayInteger = (TextView) findViewById(
                 R.id.integer_number6);
-        displayInteger.setText("" + number + "kg");
+        displayInteger.setText(number + "kg");
     }
     public void increaseInteger7(View view) {
         minteger7 = minteger7 + 1;
@@ -176,7 +189,32 @@ public class ABAActivity extends AppCompatActivity {
     private void display7(int number) {
         TextView displayInteger = (TextView) findViewById(
                 R.id.integer_number7);
-        displayInteger.setText("" + number + "kg");
+        displayInteger.setText(number + "kg");
     }
-    
+
+    public void saveTrainingToBase(View view) {
+
+        try{
+            progressDB = this.openOrCreateDatabase("MyProgress", MODE_PRIVATE, null);
+
+            progressDB.execSQL("CREATE IF NOT EXISTS cwiczenia" + "(id integer primary key, name VARCHAR, tydzien VARCHAR);");
+
+            File database =
+                    getApplicationContext().getDatabasePath("MyProgress.db");
+
+            if (!database.exists()){
+                Toast.makeText(this, "Baza została utworzona",
+                        Toast.LENGTH_SHORT).show();
+
+            }else {
+                Toast.makeText(this,"Brak bazy",
+                        Toast.LENGTH_SHORT).show();
+            }
+        }
+        catch (Exception e){
+            Log.e("Trening error", "Error creating database");
+        }
+
+        zapiszTrening.setClickable(true);
+    }
 }
