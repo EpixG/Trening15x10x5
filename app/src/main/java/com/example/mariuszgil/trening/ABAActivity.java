@@ -23,6 +23,7 @@ public class ABAActivity extends AppCompatActivity {
 
     Button zapiszTrening;
 
+    TextView trening1, trening2, trening3, trening4, trening5, trening6,trening7;
 
 
 
@@ -41,6 +42,13 @@ public class ABAActivity extends AppCompatActivity {
         setContentView(R.layout.activity_aba);
 
         zapiszTrening = (Button) findViewById(R.id.zapiszTrening);
+        trening1 = (TextView) findViewById(R.id.textView)
+        trening2 = (TextView) findViewById(R.id.textView2)
+        trening3 = (TextView) findViewById(R.id.textView3)
+        trening4 = (TextView) findViewById(R.id.textView4)
+        trening5 = (TextView) findViewById(R.id.textView5)
+        trening6 = (TextView) findViewById(R.id.textView6)
+        trening7 = (TextView) findViewById(R.id.textView7)
 
     }
     public void displayToast(){
@@ -214,6 +222,8 @@ public class ABAActivity extends AppCompatActivity {
         catch (Exception e){
             Log.e("Trening error", "Error creating database");
         }
+
+        progressDB.execSQL("INSERT INTO cwiczenia (cwiczenie, waga) VALUES (;
 
         zapiszTrening.setClickable(true);
     }
