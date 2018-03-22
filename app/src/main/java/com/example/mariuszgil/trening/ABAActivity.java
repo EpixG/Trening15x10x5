@@ -4,16 +4,21 @@ import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.io.File;
+
 public class ABAActivity extends AppCompatActivity {
 
-    SQLiteDatabase contactsDB = null;
+    SQLiteDatabase progressDB = null;
 
-
+    Button saveTraining;
+    TextView cwiczenie1, cwiczenie2, cwiczenie3, cwiczenie4, cwiczenie5, cwiczenie6, cwiczenie7,
+                waga1, waga2, waga3, waga4, waga5, waga6, waga7;
 
     //plus minus butons
     int minteger2 = 0;
@@ -49,6 +54,67 @@ public class ABAActivity extends AppCompatActivity {
         waga7 = (TextView) findViewById(R.id.integer_number8);
 
     }
+    public  void createDatabase(View view){
+
+
+        try{
+
+            // Opens a current database or creates it
+            // Pass the database name, designate that only this app can use it
+            // and a DatabaseErrorHandler in the case of database corruption
+            progressDB = this.openOrCreateDatabase("MyProgress", MODE_PRIVATE, null);
+
+            // Execute an SQL statement that isn't select
+            progressDB.execSQL("CREATE TABLE IF NOT EXISTS progress " +
+                    "(id integer primary key, cwiczenia VARCHAR, waga VARCHAR);");
+
+            // The database on the file system
+            File database = getApplicationContext().getDatabasePath("MyProgress.db");
+
+            // Check if the database exists
+            if (database.exists()) {
+                Toast.makeText(this, "Database Created", Toast.LENGTH_SHORT).show();
+            } else {
+                Toast.makeText(this, "Database Missing", Toast.LENGTH_SHORT).show();
+            }
+
+        }
+
+        catch(Exception e){
+
+            Log.e("CONTACTS ERROR", "Error Creating Database");
+
+        }
+
+        String cwicz = cwiczenie1.getText().toString();
+        String cwicz2 = cwiczenie2.getText().toString();
+        String cwicz3 = cwiczenie3.getText().toString();
+        String cwicz4 = cwiczenie4.getText().toString();
+        String cwicz5 = cwiczenie5.getText().toString();
+        String cwicz6 = cwiczenie6.getText().toString();
+        String cwicz7 = cwiczenie7.getText().toString();
+        String wag = waga1.getText().toString();
+        String wag2 = waga2.getText().toString();
+        String wag3 = waga3.getText().toString();
+        String wag4 = waga4.getText().toString();
+        String wag5 = waga5.getText().toString();
+        String wag6 = waga6.getText().toString();
+        String wag7 = waga7.getText().toString();
+
+        progressDB.execSQL("INSERT INTO progress (cwiczenia, waga) VALUES ('" + cwicz
+                + "', '" + wag + "');");
+    }
+    @Override
+    protected void onDestroy() {
+
+        progressDB.close();
+
+        super.onDestroy();
+    }
+
+
+
+
     public void displayToast(){
         Context context = getApplicationContext();
         CharSequence zaMaloKG = "Nie ma ujemnego obciążenia" ;
