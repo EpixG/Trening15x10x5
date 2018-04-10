@@ -37,6 +37,10 @@ public class ABAActivity extends AppCompatActivity {
 
         //DB
 
+        AppDatabase db = Room.databaseBuilder(getApplicationContext(),
+                AppDatabase.class, "database-name").build();
+
+
         saveTraining = (Button) findViewById(R.id.zapiszTrening);
         cwiczenie1 = (TextView) findViewById(R.id.textView);
         cwiczenie2 = (TextView) findViewById(R.id.textView2);
