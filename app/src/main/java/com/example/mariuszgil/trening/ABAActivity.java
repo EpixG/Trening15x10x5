@@ -1,5 +1,8 @@
 package com.example.mariuszgil.trening;
 
+import android.arch.persistence.db.SupportSQLiteOpenHelper;
+import android.arch.persistence.room.DatabaseConfiguration;
+import android.arch.persistence.room.InvalidationTracker;
 import android.arch.persistence.room.Room;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -18,7 +21,9 @@ public class ABAActivity extends AppCompatActivity {
 
     Button saveTraining;
     TextView cwiczenie1, cwiczenie2, cwiczenie3, cwiczenie4, cwiczenie5, cwiczenie6, cwiczenie7,
-                waga1, waga2, waga3, waga4, waga5, waga6, waga7;
+                waga1, waga2, waga3, waga4, waga5, waga6, waga7, tydzien;
+
+    Button getSaveTraining;
 
     //plus minus butons
     int minteger2 = 0;
@@ -28,17 +33,41 @@ public class ABAActivity extends AppCompatActivity {
     int minteger5 = 0;
     int minteger6 = 0;
     int minteger7 = 0;
+    int minteger9 = 0;
 
+
+    public static AppDatabase appDatabase;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aba);
 
-        //DB
+        getSaveTraining = findViewById(R.id.zapiszTrening);
 
-        AppDatabase db = Room.databaseBuilder(getApplicationContext(),
-                AppDatabase.class, "database-name").build();
+        //DB
+        appDatabase = Room.databaseBuilder(getApplicationContext(),AppDatabase.class,"userDB").allowMainThreadQueries().build();
+
+
+        getSaveTraining.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                String exerciseName = cwiczenie1.getText().toString();
+                int exerciseWeek = Integer.parseInt(tydzien.getText().toString());
+                int exerciseWeight = Integer.parseInt(waga1.getText().toString());
+
+                User user = new User();
+                user.setExercise(exerciseName);
+                user.setWeek(exerciseWeek);
+                user.setWeight(exerciseWeight);
+
+                ABAActivity.appDatabase.userDao().insertProgress(user);
+                displayToast2();
+
+
+            }
+        });
 
 
         saveTraining = (Button) findViewById(R.id.zapiszTrening);
@@ -56,6 +85,7 @@ public class ABAActivity extends AppCompatActivity {
         waga5 = (TextView) findViewById(R.id.integer_number6);
         waga6 = (TextView) findViewById(R.id.integer_number7);
         waga7 = (TextView) findViewById(R.id.integer_number8);
+        tydzien = (TextView) findViewById(R.id.integer_number9);
 
     }
 
@@ -64,6 +94,14 @@ public class ABAActivity extends AppCompatActivity {
     public void displayToast(){
         Context context = getApplicationContext();
         CharSequence zaMaloKG = "Nie ma ujemnego obciążenia" ;
+        int duration = Toast.LENGTH_SHORT;
+        Toast toast = Toast.makeText(context, zaMaloKG, duration);
+        toast.show();
+    }
+
+    public void displayToast2(){
+        Context context = getApplicationContext();
+        CharSequence zaMaloKG = "Dodano do bazy" ;
         int duration = Toast.LENGTH_SHORT;
         Toast toast = Toast.makeText(context, zaMaloKG, duration);
         toast.show();
@@ -189,6 +227,7 @@ public class ABAActivity extends AppCompatActivity {
                 R.id.integer_number6);
         displayInteger.setText("" + number + "kg");
     }
+
     public void increaseInteger7(View view) {
         minteger7 = minteger7 + 1;
         display7(minteger7);
@@ -208,6 +247,28 @@ public class ABAActivity extends AppCompatActivity {
         TextView displayInteger = (TextView) findViewById(
                 R.id.integer_number7);
         displayInteger.setText("" + number + "kg");
+    }
+
+
+    public void increaseInteger9(View view) {
+        minteger9 = minteger9 + 1;
+        display9(minteger9);
+
+    }
+    public void decreaseInteger9(View view) {
+        if (minteger9 >= 1) {
+            minteger9 = minteger9 - 1;
+            display7(minteger9);
+        }
+        else if (minteger9 <= 0) {
+            displayToast();
+        }
+    }
+
+    private void display9(int number) {
+        TextView displayInteger = (TextView) findViewById(
+                R.id.integer_number9);
+        displayInteger.setText("" + number);
     }
 
 

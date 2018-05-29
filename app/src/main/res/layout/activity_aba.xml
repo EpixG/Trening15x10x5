@@ -341,5 +341,36 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/increase9"
+        android:layout_width="32dp"
+        android:layout_height="38dp"
+        android:onClick="increaseInteger9"
+        android:text="+"
+        app:layout_constraintEnd_toStartOf="@+id/integer_number9"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/integer_number9"
+        android:layout_width="35dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="4dp"
+        android:text="0"
+        android:textAppearance="@style/TextAppearance.AppCompat.Menu"
+        app:layout_constraintEnd_toStartOf="@+id/textView9"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toEndOf="@+id/increase9"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView9"
+        android:layout_width="66dp"
+        android:layout_height="29dp"
+        android:text="Tydzien"
+        app:layout_constraintStart_toEndOf="@+id/integer_number9"
+        tools:layout_editor_absoluteY="5dp" />
+
 
 </android.support.constraint.ConstraintLayout>
