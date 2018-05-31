@@ -1,5 +1,6 @@
 package com.example.mariuszgil.trening;
 
+import android.annotation.SuppressLint;
 import android.arch.persistence.db.SupportSQLiteOpenHelper;
 import android.arch.persistence.room.DatabaseConfiguration;
 import android.arch.persistence.room.InvalidationTracker;
@@ -15,6 +16,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
+
+import static com.example.mariuszgil.trening.R.id.zapiszTrening;
 
 public class ABAActivity extends AppCompatActivity {
 
@@ -38,12 +41,13 @@ public class ABAActivity extends AppCompatActivity {
 
     public static AppDatabase appDatabase;
 
+    @SuppressLint("CutPasteId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_aba);
 
-        getSaveTraining = findViewById(R.id.zapiszTrening);
+        getSaveTraining = findViewById(zapiszTrening);
 
         //DB
         appDatabase = Room.databaseBuilder(getApplicationContext(),AppDatabase.class,"userDB").allowMainThreadQueries().build();
@@ -54,10 +58,13 @@ public class ABAActivity extends AppCompatActivity {
             public void onClick(View view) {
 
                 String exerciseName = cwiczenie1.getText().toString();
-                int exerciseWeek = Integer.parseInt(tydzien.getText().toString());
-                int exerciseWeight = Integer.parseInt(waga1.getText().toString());
+                String exerciseWeek = tydzien.getText().toString();
+                String exerciseWeight = waga1.getText().toString();
+                int exerciseId = Integer.parseInt(tydzien.getText().toString());
+
 
                 User user = new User();
+                user.setId(exerciseId);
                 user.setExercise(exerciseName);
                 user.setWeek(exerciseWeek);
                 user.setWeight(exerciseWeight);
@@ -70,7 +77,7 @@ public class ABAActivity extends AppCompatActivity {
         });
 
 
-        saveTraining = (Button) findViewById(R.id.zapiszTrening);
+        saveTraining = (Button) findViewById(zapiszTrening);
         cwiczenie1 = (TextView) findViewById(R.id.textView);
         cwiczenie2 = (TextView) findViewById(R.id.textView2);
         cwiczenie3 = (TextView) findViewById(R.id.textView3);
