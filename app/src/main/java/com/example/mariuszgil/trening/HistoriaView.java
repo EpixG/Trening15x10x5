@@ -35,7 +35,7 @@ public class HistoriaView extends AppCompatActivity {
             String week = usr.getWeek();
             String exercise = usr.getExercise();
 
-            info = info+"\n\n"+ "tydzien: "+week+ " cwiczenie: "+exercise +" "+wage;
+            info = info+"\n\n"+ "tydzien: "+week+ " cwiczenie: "+exercise +" "+wage+"\n";
 
 
         }

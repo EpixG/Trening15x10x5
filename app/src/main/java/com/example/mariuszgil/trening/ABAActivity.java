@@ -21,7 +21,7 @@ import static com.example.mariuszgil.trening.R.id.zapiszTrening;
 
 public class ABAActivity extends AppCompatActivity {
 
-
+    int exerciseId;
     Button saveTraining;
     TextView cwiczenie1, cwiczenie2, cwiczenie3, cwiczenie4, cwiczenie5, cwiczenie6, cwiczenie7,
                 waga1, waga2, waga3, waga4, waga5, waga6, waga7, tydzien;
@@ -60,7 +60,7 @@ public class ABAActivity extends AppCompatActivity {
                 String exerciseName = cwiczenie1.getText().toString();
                 String exerciseWeek = tydzien.getText().toString();
                 String exerciseWeight = waga1.getText().toString();
-                int exerciseId = Integer.parseInt(tydzien.getText().toString());
+                //int exerciseId = Integer.parseInt(tydzien.getText().toString())
 
 
                 User user = new User();
