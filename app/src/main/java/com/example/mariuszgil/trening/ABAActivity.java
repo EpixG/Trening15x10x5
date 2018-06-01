@@ -57,17 +57,27 @@ public class ABAActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
 
-                String exerciseName = cwiczenie1.getText().toString();
-                String exerciseWeek = tydzien.getText().toString();
-                String exerciseWeight = waga1.getText().toString();
+                String exerciseWeek1 = tydzien.getText().toString();
+                String exerciseWeight1 = waga1.getText().toString();
+                String exerciseWeight2 = waga2.getText().toString();
+                String exerciseWeight3 = waga3.getText().toString();
+                String exerciseWeight4 = waga4.getText().toString();
+                String exerciseWeight5 = waga5.getText().toString();
+                String exerciseWeight6 = waga6.getText().toString();
+                String exerciseWeight7 = waga7.getText().toString();
                 //int exerciseId = Integer.parseInt(tydzien.getText().toString())
 
 
                 User user = new User();
                 user.setId(exerciseId);
-                user.setExercise(exerciseName);
-                user.setWeek(exerciseWeek);
-                user.setWeight(exerciseWeight);
+                user.setWeek(exerciseWeek1);
+                user.setWeight1(exerciseWeight1);
+                user.setWeight2(exerciseWeight2);
+                user.setWeight3(exerciseWeight3);
+                user.setWeight4(exerciseWeight4);
+                user.setWeight5(exerciseWeight5);
+                user.setWeight6(exerciseWeight6);
+                user.setWeight7(exerciseWeight7);
 
                 ABAActivity.appDatabase.userDao().insertProgress(user);
                 displayToast2();
