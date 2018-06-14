@@ -3,6 +3,7 @@ package com.example.mariuszgil.trening;
 import android.arch.persistence.room.Room;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.view.View;
 import android.widget.TextView;
 
@@ -23,6 +24,7 @@ public class HistoriaView extends AppCompatActivity {
 
 
         txtInfo = findViewById(R.id.historia);
+        txtInfo.setMovementMethod(new ScrollingMovementMethod());
 
         List<User> users = HistoriaView.appDatabase.userDao().getProgress();
 
@@ -40,9 +42,9 @@ public class HistoriaView extends AppCompatActivity {
             String week = usr.getWeek();
 
 
-            info = info+"\n\n"+ "tydzien: "+week +" Przysiad ze sztangą: "+wage1+"\n" + "Wiosłowanie: "+wage2+"\n"+
+            info = "\n\n"+ "tydzien: "+week +"\nPrzysiad ze sztangą: "+wage1+"\n" + "Wiosłowanie: "+wage2+"\n"+
                             "Wyciskanie leżąc: "+wage3+"\n" + "Podciąganie na drążku podchwytem: "+ wage4+"\n"+
-                            "Barki: " + wage5+"\n"+ "Biceps: " + wage6+"\n"+ "Triceps: "+wage7 +"\n";
+                            "Barki: " + wage5+"\n"+ "Biceps: " + wage6+"\n"+ "Triceps: "+wage7 +"\n" + info;
 
 
         }
