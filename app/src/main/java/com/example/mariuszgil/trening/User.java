@@ -32,10 +32,35 @@ public class User {
     @ColumnInfo(name = "weight7")
     private String weight7;
 
-
-
     @ColumnInfo(name = "week")
     private String week;
+
+
+    @ColumnInfo(name = "weight1b")
+    private String weight1b;
+
+    @ColumnInfo(name = "weight2b")
+    private String weight2b;
+
+    @ColumnInfo(name = "weight3b")
+    private String weight3b;
+
+    @ColumnInfo(name = "weight4b")
+    private String weight4b;
+
+    @ColumnInfo(name = "weight5b")
+    private String weight5b;
+
+    @ColumnInfo(name = "weight6b")
+    private String weight6b;
+
+    @ColumnInfo(name = "weight7b")
+    private String weight7b;
+
+    @ColumnInfo(name = "weekb")
+    private String weekb;
+
+
 
     public int getId() {
         return id;
@@ -108,10 +133,67 @@ public class User {
         this.weight7 = weight7;
     }
 
+    public String getWeight1b() {
+        return weight1b;
+    }
 
+    public void setWeight1b(String weight1b) {
+        this.weight1b = weight1b;
+    }
 
+    public String getWeight2b() {
+        return weight2b;
+    }
 
+    public void setWeight2b(String weight2b) {
+        this.weight2b = weight2b;
+    }
 
+    public String getWeight3b() {
+        return weight3b;
+    }
 
+    public void setWeight3b(String weight3b) {
+        this.weight3b = weight3b;
+    }
 
+    public String getWeight4b() {
+        return weight4b;
+    }
+
+    public void setWeight4b(String weight4b) {
+        this.weight4b = weight4b;
+    }
+
+    public String getWeight5b() {
+        return weight5b;
+    }
+
+    public void setWeight5b(String weight5b) {
+        this.weight5b = weight5b;
+    }
+
+    public String getWeight6b() {
+        return weight6b;
+    }
+
+    public void setWeight6b(String weight6b) {
+        this.weight6b = weight6b;
+    }
+
+    public String getWeight7b() {
+        return weight7b;
+    }
+
+    public void setWeight7b(String weight7b) {
+        this.weight7b = weight7b;
+    }
+
+    public String getWeekb() {
+        return weekb;
+    }
+
+    public void setWeekb(String weekb) {
+        this.weekb = weekb;
+    }
 }

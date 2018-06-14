@@ -41,10 +41,27 @@ public class HistoriaView extends AppCompatActivity {
             String wage7 = usr.getWeight7();
             String week = usr.getWeek();
 
+            String wage1b = usr.getWeight1b();
+            String wage2b = usr.getWeight2b();
+            String wage3b = usr.getWeight3b();
+            String wage4b = usr.getWeight4b();
+            String wage5b = usr.getWeight5b();
+            String wage6b = usr.getWeight6b();
+            String wage7b = usr.getWeight7b();
+            String weekb = usr.getWeekb();
+
+
+
 
             info = "\n\n"+ "tydzien: "+week +"\nPrzysiad ze sztangą: "+wage1+"\n" + "Wiosłowanie: "+wage2+"\n"+
                             "Wyciskanie leżąc: "+wage3+"\n" + "Podciąganie na drążku podchwytem: "+ wage4+"\n"+
-                            "Barki: " + wage5+"\n"+ "Biceps: " + wage6+"\n"+ "Triceps: "+wage7 +"\n" + info;
+                            "Barki: " + wage5+"\n"+ "Biceps: " + wage6+"\n"+ "Triceps: "+wage7 +"\n" +
+
+                    "\n\n"+ "tydzien: "+weekb +"\nMartwy ciąg ze sztangą: "+wage1b+"\n" + "Wyciskanie sztangi wąskim chwytem: "+wage2b+"\n"+
+                    "Wyciskanie na barki, siedząc, do czoła: "+wage3b+"\n" + "Wiosłowanie jednorącz "+ wage4b+"\n"+
+                    "Wznosy ramion w opadzie: " + wage5b+"\n"+ "Biceps: " + wage6b+"\n"+ "Triceps: "+wage7b +"\n"
+
+                    + info;
 
 
         }

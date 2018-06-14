@@ -55,12 +55,6 @@ public class ABAActivity extends AppCompatActivity {
 
 
 
-
-
-
-
-
-
         getSaveTraining = findViewById(zapiszTrening);
 
         //DB
